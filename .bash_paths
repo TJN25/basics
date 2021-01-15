@@ -1,0 +1,29 @@
+
+export PATH="/Users/thomasnicholson/bin:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/python:$PATH"
+export PATH="/Users/thomasnicholson/bin/r_git/R:$PATH"
+export PATH="/Users/thomasnicholson/bin/bash_git:$PATH"
+export PATH="/Users/thomasnicholson/bin/python_git:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/sRNA_evo-master:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/samtools-1.6:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/bowtie2-2.3.4.2:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/Trimmomatic_binary-0.36:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/sratoolkit.2.9.2-mac64/bin:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/PredVirusHost:$PATH"
+
+export PATH="/Users/thomasnicholson/phd/predvirushost:$PATH"
+
+export PATH="/Users/thomasnicholson/bin/gffcompare-0.10.4.OSX_x86_64:$PATH"
+
+export PATH=${PATH}:/Users/thomasnicholson/edirect
+export PATH=${PATH}:/Users/thomasnicholson/bin/rscape_v1.5.12/bin/
+export PATH=${PATH}:/Users/thomasnicholson/bin/rscape_v1.2.3/bin/
+export PATH=${PATH}:/Users/thomasnicholson/bin/predsRNA/
+export PATH=${PATH}:/Users/thomasnicholson/bin/phylip-3.695/exe/dnadist.app/Contents/MacOS/
