@@ -1,0 +1,73 @@
+runshiny() {     R -e "shiny::runApp('$1')"; }
+cdrna() { cd ~/phd/RNASeq/$1/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a"; }
+rfamscan() { counts=$( bc -l <<< "scale=2;$(esl-seqstat $1.fna | grep ^"Total" | tr -s ' ' | cut -d ' ' -f4)*2/1000000"); cmscan -Z $counts  --cut_ga --rfam --nohmmonly --tblout $1.tblout --fmt 2 --clanin ~/Downloads/Rfam.clanin.txt ~/Downloads/Rfam.cm $1.fna; cmscanToGffWrapper.R -f $1.tblout -g $1;}
+cl() { clear; ls -G $1;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";}
+cld() { clear; echo "Directory list:"; ls -d -G */;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";}
+cdc() { cd $1; cl; }
+mvseq() { mv ~/Downloads/sequence.gff3 ${1}.gff3; }
+fcount() {
+	ls $1 | wc -l
+}
+
+lazygit() {
+           git status
+	   read -p "add, commit and push all files? y/n: " val
+	   if [[ $val == 'y' ]]; then
+	   git add .; 
+	   git commit -m "$1"; 
+           git push; 
+	   else
+	   echo "Not running lazygit";
+	   fi;
+           }
+
+
+alias preview="open -a /System/Applications/Preview.app"
+alias rstudio="open -a /Applications/RStudio.app"
+alias bbedit="open -a /Applications/BBEdit.app"
+alias cd2tt="cd /Volumes/2TTJN/Virus_Host_Prediction/"
+alias profile="nano ~/.bash_profile"
+alias paths="nano ~/.bash_paths"
+alias aprofile="nano ~/.bash_alias"
+
+
+alias activity="open -a /Applications/Utilities/Activity\ Monitor.app/"
+alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
+alias excel='open -a "/Applications/Microsoft Excel.app"'
+alias rstudiobioc='open http:/biochemcompute.otago.ac.nz:8787/;'
+alias anaconda='open ~/anaconda3/Anaconda-Navigator.app/'
+
+alias cdscr='cd ~/bin/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdvir='cd ~/phd/virus_host_prediction/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdpred='cd ~/phd/pred_virus_host/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdphd='cd ~/phd/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdtn='cd /Volumes/student_users/thomasnicholson/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdlog='cd ~/.logs/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdgenera='cd ~/phd/RNASeq/genera/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdnewcalls='cd ~/phd/RNASeq/new_calls;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdcombinedgff='cd ~/phd/RNASeq/combined_gff_files;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cddesk='cd ~/Desktop/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cddown='cd ~/Downloads/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias working='cd ~/phd/RNASeq/srna_seqs/version_1/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";' 
+
+alias cdalign='cd ~/phd/RNASeq/alignments;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdr='cd ~/bin/r_git/R/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdpy='cd ~/bin/python_git/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias cdbash='cd ~/bin/bash_git/;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias sprofile='source ~/.bash_profile;CURRENT=`pwd`;BASENAME=`basename "$CURRENT"`; echo -en "\033]0;$BASENAME\a";'
+alias lesss="less -S"
+alias lsls="ls -lsth -G "
+alias l='echo "using ls"; ls -G'
+alias s='echo "using ls"; ls -G'
+alias sl='echo "using ls"; ls -G'
+alias lsd='echo "Directory list:"; ls -d -G */'
+alias lsg='ls -G'
+alias lss='ls -lsthS -G'
+alias lsalias='cat ~/.bash_profile | grep alias | cut -d " " -f2- | sort'
+alias writernaseqT="WRITE_RNASEQ_LOG='T'"
+alias writernaseqF="WRITE_RNASEQ_LOG='F'"
+alias writernaseq='echo $WRITE_RNASEQ_LOG'
+
+alias gittest="git checkout test"
+alias gitmaster="git checkout master"
+alias gitrebase="git rebase origin/master"
